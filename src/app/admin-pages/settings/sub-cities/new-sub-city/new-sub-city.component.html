@@ -1,32 +1,32 @@
-<h1 mat-dialog-title>Update Zone</h1>
+<h1 mat-dialog-title>New SubCity</h1>
 <div mat-dialog-content>
   <div class="form-label-group">
     <mat-form-field>
-      <mat-select placeholder="Region" [(ngModel)]="updateZone.region_id" name="region_id">
-        <mat-option *ngFor="let region of regions" [value]="region.id">
-          {{region.name}}
+      <mat-select placeholder="City" [(ngModel)]="newSubCity.city_id" name="city_id">
+        <mat-option *ngFor="let city of cities" [value]="city.id">
+          {{city.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Name" [(ngModel)]="updateZone.name" name="name">
+      <input matInput placeholder="Name" [(ngModel)]="newSubCity.name" name="name">
     </mat-form-field>
   </div>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Latitude" [(ngModel)]="updateZone.latitude" name="latitude">
+      <input matInput placeholder="Latitude" [(ngModel)]="newSubCity.latitude" name="latitude">
     </mat-form-field>
   </div>
   <div class="form-label-group">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Longitude" [(ngModel)]="updateZone.longitude" name="longitude">
+      <input matInput placeholder="Longitude" [(ngModel)]="newSubCity.longitude" name="longitude">
     </mat-form-field>
   </div>
   <br>
   <div class="form-label-group">
-    <button mat-raised-button (click)="updateZoneDialog()" class="btn btn-primary pull-right">Update Zone</button>
+    <button mat-raised-button (click)="addNewSubCity()" class="btn btn-primary pull-right">Add SubCity</button>
     <button mat-raised-button (click)="cancel()" class="btn btn-default pull-left">Cancel</button>
   </div>
 </div>

@@ -1,8 +1,9 @@
 import {Region} from '../settings/regions/regions.objects';
 import {Zone} from '../settings/zones/zones.objects';
 import {Wereda} from '../settings/weredas/weredas.objects';
-import {Kebele, SubCity} from '../settings/Settings.Objects';
+import {Kebele} from '../settings/Settings.Objects';
 import {City} from '../settings/cities/cities.object';
+import {SubCity} from "../settings/sub-cities/sub-cities.object";
 /**
  * Created by BENGEOS on 3/21/20.
  */
@@ -22,14 +23,18 @@ export class CallReport {
     public kebele: Kebele;
     public age: number;
     public phone: string;
+    public second_phone: string;
     public full_name: string;
     public occupation: number;
     public other: string;
     public gender: string;
+    public is_travel_hx: boolean;
+    public is_contacted_with_pt: boolean;
+    public is_visited_animal: boolean;
+    public is_visited_hf: boolean;
     public report_type: string;
     public node: any;
     public rumor_types: RumorType[];
-    public call_rumor_types: CallRumorType[];
     public report_group_id: number;
     public description: string;
     public remark_1: string;

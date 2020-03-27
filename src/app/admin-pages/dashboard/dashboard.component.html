@@ -8,7 +8,7 @@
               <i class="material-icons">ring_volume</i>
             </div>
             <p class="card-category">Call Reports</p>
-            <h3 class="card-title">{{dashboard_count_data.sent_messages}}
+            <h3 class="card-title">{{dashboard_count_data.call_reports_count}}
               <small>Calls</small>
             </h3>
           </div>
@@ -24,16 +24,16 @@
         <div class="card card-stats">
           <div class="card-header card-header-success card-header-icon">
             <div class="card-icon">
-              <i class="material-icons">textsms</i>
+              <i class="material-icons">supervisor_account</i>
             </div>
-            <p class="card-category">Received Messages</p>
-            <h3 class="card-title">{{dashboard_count_data.received_messages}}
-              <small>MSGs</small>
+            <p class="card-category">Community Reports</p>
+            <h3 class="card-title">{{dashboard_count_data.community_reports_count}}
+              <small>Reports</small>
             </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons">textsms</i> Total Received Messages
+              <i class="material-icons">supervisor_account</i> Reports From Community
             </div>
           </div>
         </div>
@@ -42,16 +42,16 @@
         <div class="card card-stats">
           <div class="card-header card-header-danger card-header-icon">
             <div class="card-icon">
-              <i class="material-icons">contacts</i>
+              <i class="material-icons">local_hospital</i>
             </div>
-            <p class="card-category">Contacts</p>
-            <h3 class="card-title">{{dashboard_count_data.contacts}}
+            <p class="card-category">Health Institutes Reports</p>
+            <h3 class="card-title">{{dashboard_count_data.medial_reports_count}}
               <small></small>
             </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons">contacts</i> Total Message Ports
+              <i class="material-icons">contacts</i> Health Institute`s Reports
             </div>
           </div>
         </div>
@@ -62,14 +62,14 @@
             <div class="card-icon">
               <i class="material-icons">supervisor_account</i>
             </div>
-            <p class="card-category">Users</p>
-            <h3 class="card-title">{{dashboard_count_data.users}}
+            <p class="card-category">Social Media</p>
+            <h3 class="card-title">{{dashboard_count_data.medial_reports_count}}
               <small></small>
             </h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons">supervisor_account</i> User Accounts
+              <i class="material-icons">supervisor_account</i> Social Media
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@
             <div class="ct-chart" id="DailySentMessagesChart" style="height: 300px"></div>
           </div>
           <div class="card-body">
-            <h4 class="card-title">Messages History</h4>
+            <h4 class="card-title">Report History</h4>
             <button mat-raised-button type="button" matTooltip="Move To The Left"
                     [matTooltipPosition]="'above'" (click)="moveDailyMessageHistory(-1);"
                     class="btn btn-primary btn-link btn-md btn-just-icon pull-right">
@@ -97,6 +97,67 @@
           <div class="card-footer">
             <div class="stats">
               <i class="material-icons">access_time</i> Daily Call Reports
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-warning">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <span class="nav-tabs-title">Regional Reports:</span>
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                  <li class="nav-item">
+                    <a mat-button class="nav-link active" href="#call_reports" data-toggle="tab">
+                      <i class="material-icons">bug_report</i> Call Reports
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a mat-button class="nav-link" href="#community_reports" data-toggle="tab">
+                      <i class="material-icons">code</i> Community Reports
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a mat-button class="nav-link" href="#health_institute_reports" data-toggle="tab">
+                      <i class="material-icons">cloud</i> Health Institutes Reports
+                      <div class="ripple-container"></div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="call_reports">
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                    <th>ID</th>
+                    <th>Region</th>
+                    <th>Total Reports</th>
+                    <th>Last Report Date</th>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let regionalReport of regionalCallReports; let i = index">
+                      <td>{{i + 1}}</td>
+                      <td>{{regionalReport.region.name}}</td>
+                      <td>{{regionalReport.call_reports}}</td>
+                      <td>{{regionalReport.last_report_date}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane" id="community_reports">
+              </div>
+              <div class="tab-pane" id="health_institute_reports">
+              </div>
             </div>
           </div>
         </div>
